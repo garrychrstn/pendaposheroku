@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Aplikasi Pengolahan Data Posyandu Desa Sumberejo
+{% endblock %}
+
+{% block style %}
+    <link rel='stylesheet' type='text/css' href={% static 'index.css' %}>
+{% endblock %}
+
+{% block content %}
+    <div class='index'>
+        <h3>Selamat datang di</h3>
+        <h1>Aplikasi Pengolahan Data Posyandu Desa Sumberejo</h1>
+    </div>
+    <div class='link'>
+        <a href='input'>
+            Input Data
+        </a>
+    </div>
+{% endblock %}

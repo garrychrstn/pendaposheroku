@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Diagnosa Stunting{% endblock %}
+
+{% block style %}
+    <link rel='stylesheet' type='text/css' href={% static 'home.css' %}>
+{% endblock %}
+
+{% block content %}
+    {% if notif %}
+        <div class='notif'>{{ notif }}</div>
+    {% endif %}
+    <div class='form'>  
+        <form method='POST' action=''>
+            {% csrf_token %}
+                {{ proba.as_p }}
+                {{ dayi.as_p }}
+            <button type='submit' name='save'>NEXT</button>
+        </form>
+    </div>
+{% endblock %}

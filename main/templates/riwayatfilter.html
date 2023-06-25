@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Riwayat Posyandu{% endblock %}
+
+{% block style %}
+    <link rel='stylesheet' type='text/css' href={% static 'all.css' %}>
+{% endblock %}
+
+{% block content %}
+<form method="GET" action="">
+    <label for="bulan-filter">Filter by Bulan:</label>
+    <select name="bulan" id="bulan-filter">
+      <option value="">All</option>
+      <option value="Januari">Januari</option>
+      <option value="Februari">Februari</option>
+      <!-- Add more options for each month -->
+    </select>
+    <button type="submit">Filter</button>
+  </form>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Nama</th>
+        <th>Bulan</th>
+        <th>TB</th>
+        <th>BB</th>
+        <th>LL</th>
+        <th>LK</th>
+        <th>Ket</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for posyandu in posyandu_list %}
+        <tr>
+          <td>{{ posyandu.nik.nama }}</td>
+          <td>{{ posyandu.bulan }}</td>
+          <td>{{ posyandu.tb }}</td>
+          <td>{{ posyandu.bb }}</td>
+          <td>{{ posyandu.ll }}</td>
+          <td>{{ posyandu.lk }}</td>
+          <td>{{ posyandu.ket }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

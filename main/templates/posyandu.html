@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Input Data Posyandu{% endblock %}
+{% block style %}
+    <link rel='stylesheet' type='text/css' href={% static 'posyandu.css' %}>
+{% endblock %}
+{% block content %}
+    <div class='display'>
+        <h1>Update Data</h1>
+        <table>
+            <tr>
+                <th>Nama</th>
+                <td>{{ data.nama }}</th>
+            </tr>
+            <tr>
+                <th>NIK</td>
+                <td>{{ data.nik }}</td>
+            </tr>
+        </table>
+    </div>
+    <div class='form'>
+        <form method='POST' action=''>
+            {% csrf_token %}
+            {{ forms.as_p }}
+            <button type='submit' name='save'>Save</button>
+        </form>
+    </div>
+{% endblock %}

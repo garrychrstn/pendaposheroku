@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Rincian Data Posyandu{% endblock %}
+
+{% block style %}
+    <link rel='stylesheet' type='text/css' href={% static 'table.css' %}>
+{% endblock %}
+
+{% block content %}
+<table>
+    <thead>
+      <tr>
+        <th>NIK</th>
+        <th>Nama</th>
+        <th>Tanggal Lahir</th>
+        <th>Jenis Kelamin</th>
+        <th>TB</th>
+        <th>BB</th>
+        <th>LL</th>
+        <th>LK</th>`
+        <th>Ket</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for profil in profil_data %}
+      <tr>
+        <td>{{ profil.nik }}</td>
+        <td>{{ profil.nama }}</td>
+        <td>{{ profil.dob }}</td>
+        <td>{{ profil.gender }}</td>
+        {% for data in data_data %}
+        {% if data.nik_id == profil.nik %}
+        <td>{{ data.tb }}</td>
+        <td>{{ data.bb }}</td>
+        <td>{{ data.ll }}</td>
+        <td>{{ data.lk }}</td>
+        <td>{{ data.ket }}</td>
+        {% endif %}
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+</table>  
+{% endblock %}

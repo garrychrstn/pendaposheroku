@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #F7F0F5;
+}
+
+header {
+    background-color: #11a79a;
+    margin-bottom: 10px;
+}
+header a{
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    text-decoration: none;
+}
+.content {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    max-height: 100px ;
+    justify-content: space-between;
+}
+.logo {
+    padding: 10px 0px 60px 10px;
+}
+.menubar ul {
+    padding: 10px 0px 10px 0px;
+    margin-top: none;
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+    background: #3d3d3d;
+    width: 100%;
+    margin: auto;
+    font-size: 15px;
+    max-height: 20px;
+}
+.content ul {
+    display: flex;
+    margin-right: 30px;
+    list-style: none;
+
+}
+
+.content li {
+    margin-left: 20px;
+    margin-top: 50px;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+
+}
+
+#data {
+    text-decoration: underline;
+}
+
+.form {
+    width: 70%;
+    margin: auto;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    margin-top: 50px;
+}
+
+.form input {
+    background: none;
+    margin-bottom: 10px;
+    border: gray 1px solid;
+    min-height: 20px;
+    padding: 0px 5px;
+}
+
+.form input:focus {
+    outline: none;
+}
+
+.form input[type=text], .form input[type=number] {
+    width: 50%;
+}
+
+.form button {
+    padding: 5px;
+    background: #3d3d3d;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    box-shadow: none;
+}
+
+table {
+    margin: auto;
+    width: 70%;
+    border-collapse: collapse;
+    font-family: 'Montserrat', sans-serif;
+
+}
+th, td {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+    padding: 10px;
+}
+td a {
+    color: white;
+    background: #3d3d3d;
+    text-decoration: none;
+    padding: 3px;
+}

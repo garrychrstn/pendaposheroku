@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Data Balita Desa Sumberejo
+{% endblock %}
+
+{% block style %}
+    <link rel='stylesheet' type='text/css' href={% static 'action.css' %}>
+{% endblock %}
+
+{% block content %}
+    <table>
+        <thead>
+        <tr>
+            <th>No</th>
+            <th>NIK</th>
+            <th>Nama</th>
+            <th>Kelamin</th>
+            <th>Dusun</th>
+            <th>Tanggal Lahir</th>
+            <th>Umur (minggu)</th>
+            <th>Nama Ibu</th>
+            <th>NIK Ibu</th>
+            <th>Aksi</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for profil in profils %}
+        <tr>
+            <td>{{ forloop.counter }}
+            <td>{{ profil.nik }}</td>
+            <td>{{ profil.nama }}</td>
+            <td>{{ profil.kelamin }}</td>
+            <td>{{ profil.dusun }}</td>
+            <td>{{ profil.tgl }}</td>
+            <td>{{ profil.umur }}</td>
+            <td>{{ profil.namaibu }}</td>
+            <td>{{ profil.nikibu}}</td>
+            <td><a href="{% url 'main:posyandu' profil.nik %}">Isi Data Posyandu</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>  
+{% endblock %}
