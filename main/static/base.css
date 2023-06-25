@@ -13,6 +13,7 @@ body {
 
 header {
     background-color: #11a79a;
+    padding-top: 20px;
 }
 .content {
     width: 90%;

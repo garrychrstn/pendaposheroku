@@ -33,13 +33,19 @@ class ProfilInput(forms.Form):
             'placeholder' : 'NIK Ibu'
         })
     )
-    dusun = forms.CharField(
+    pilihandusun = [
+        ('Kerjo', 'Kerjo'),
+        ('Sumberejo', 'Sumberejo'),
+        ('Plandakan', 'Plandakan'),
+        ('Kadipeso', 'Kadipeso'),
+        ('Dumpul', 'Dumpul'),
+        ('Derso', 'Derso')
+    ]
+    dusun = forms.ChoiceField(
+        widget=forms.Select,
         required = True,
-        label_suffix='',
-        label = '',
-        widget = forms.TextInput(attrs = {
-            'placeholder' : 'Dusun'
-        })
+        choices=pilihandusun,
+        label = 'Dusun',
     )
     tgl = forms.DateField(
         label=' ', 

@@ -112,14 +112,63 @@ def riwayat(response):
     
     return render(response, 'all.html', {'profils': profils})
 
-def riwayatfilter(request):
+def dumpul(response):
+    p = Profil.objects.prefetch_related('posyandu_set')
+    profils = p.filter(dusun='Dumpul')
+    context = {
+        'profils' : profils,
+    }
+    return render(response, 'dusundumpul.html', context)
+
+def kadipeso(response):
+    p = Profil.objects.prefetch_related('posyandu_set')
+    profils = p.filter(dusun='Kadipeso')
+    context = {
+        'profils' : profils,
+    }
+    return render(response, 'dusunkadipeso.html', context)
+
+def derso(response):
+    p = Profil.objects.prefetch_related('posyandu_set')
+    profils = p.filter(dusun='Derso')
+    context = {
+        'profils' : profils,
+    }
+    return render(response, 'dusunderso.html', context)
+
+def plandakan(response):
+    p = Profil.objects.prefetch_related('posyandu_set')
+    profils = p.filter(dusun='Plandakan')
+    context = {
+        'profils' : profils,
+    }
+    return render(response, 'dusunplandakan.html', context)
+
+def kerjo(response):
+    p = Profil.objects.prefetch_related('posyandu_set')
+    profils = p.filter(dusun='Kerjo')
+    context = {
+        'profils' : profils,
+    }
+    return render(response, 'dusunkerjo.html', context)
+
+def sumberejo(response):
+    p = Profil.objects.prefetch_related('posyandu_set')
+    profils = p.filter(dusun='Sumberejo')
+    context = {
+        'profils' : profils,
+    }
+    return render(response, 'dusunsumberejo.html', context)
+
+
+def filtered(request):
     bulan = request.GET.get('bulan')
     posyandu_list = Profil.objects.prefetch_related('posyandu_set')
     if bulan:
-        pl = posyandu_list.filter(bulan=bulan)
+        profils = posyandu_list.filter(bulan=bulan)
         
         context = {
-            'pl' : pl,
+            'profils' : profils,
             'posyandu_list' : posyandu_list,
         }
         return render(request, 'riwayatfilter.html', context)
