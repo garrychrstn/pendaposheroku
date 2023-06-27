@@ -8,6 +8,8 @@ body {
 
 header {
     background-color: #11a79a;
+    position: relative;
+    z-index: 2;
     margin-bottom: 10px;
 }
 header a{
@@ -92,11 +94,17 @@ header a{
 }
 
 table {
-    margin: auto;
+    margin-left: 250px;
     width: 70%;
     border-collapse: collapse;
     font-family: 'Montserrat', sans-serif;
 
+}
+.title h1 {
+    padding-left: 250px;
+    font-family: 'Montserrat', sans-serif;
+    color: #4d4d4d;
+    margin-bottom: 20px;
 }
 th, td {
     border: 1px solid black;
@@ -108,5 +116,40 @@ td a {
     color: white;
     background: #3d3d3d;
     text-decoration: none;
-    padding: 3px;
+    padding: 5px;
+}
+td a:hover {
+    background: #1e1e1e;
+}
+.sidebar {
+    position: fixed;
+    z-index: 1;
+    display: block;
+    height: 100%;
+    width: 200px;
+    background-color: #3d3d3d;
+    top: 0; left: 0;
+    overflow-x: hidden;
+    padding: 120px 10px 0px 15px;
+}
+.sidebar a {
+    display: block;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    color: #F7F0F5;
+    font-size: 12px;
+    padding: 10px;
+}
+.sidebar div {
+    margin-bottom: 10px;
+}
+.sidebar span {
+    font-family: 'Montserrat', sans-serif;
+    color: #F7F0F5;
+    font-weight: bold;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+.sidebar a:hover {
+    background: #1e1e1e;
 }

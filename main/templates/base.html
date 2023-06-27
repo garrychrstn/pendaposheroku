@@ -23,14 +23,31 @@
                     <li>About Us</li>
                 </ul>
             </div>
-            <div class='menubar'>
+            {% comment %} <div class='menubar'>
                 <ul>
                     <li id='data'><a href='/action'>Data Balita<a></li>
                     <li id='new'><a href='/input'>Balita baru lahir</a></li>
                     <li id='riwayat'><a href='/riwayat'>Riwayat Posyandu</a></li>
                 </ul>
-            </div>
+            </div> {% endcomment %}
         </header>
+        <div class='sidebar'>
+            <div>
+                <span>Data Balita</span>
+                <a href='/action'>Data Balita</a>
+                <a href='/input'>Balita Baru</a>
+            </div>
+            <div>
+                <span>Riwayat Posyandu</span>
+                <a href='/riwayat'>Desa Sumberejo</a>
+                <a href='/riwayat/kadipeso'>&rarr; Posyandu Kadipeso</a>
+                <a href='/riwayat/dumpul'>&rarr; Posyandu Dumpul</a>
+                <a href='/riwayat/sumberejo'>&rarr; Posyandu Sumberejo</a>
+                <a href='/riwayat/kerjo'>&#8594; Posyandu Kerjo</a>
+                <a href='/riwayat/plandakan'>&rarr; Posyandu Plandakan</a>
+                <a href='/riwayat/derso'>&rarr; Posyandu Derso</a>
+            </div>
+        </div>
         {% block content %}
         {% endblock %}
     </body>

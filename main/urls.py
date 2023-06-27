@@ -7,12 +7,13 @@ urlpatterns = [
     path('input', views.input, name='input'),
     path('posyandu/<int:nik>', views.inputposyandu, name='posyandu'),
     path('action/', views.action, name='action'),
+    # Riwayat Dusun
+    path('riwayat', views.riwayat, name='riwayat'),
     path('riwayat/kadipeso', views.kadipeso, name='kadipeso'),
     path('riwayat/dumpul', views.dumpul, name=''),
     path('riwayat/derso', views.derso, name=''),
     path('riwayat/sumberejo', views.sumberejo, name=''),
     path('riwayat/plandakan', views.plandakan, name=''),
     path('riwayat/kerjo', views.kerjo, name=''),
-    path('riwayat', views.riwayat, name='riwayat'),
     path('riwayatfilter', views.filtered, name='riwayatfilter')
 ]

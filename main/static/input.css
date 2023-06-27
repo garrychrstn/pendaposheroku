@@ -1,3 +1,4 @@
+/* Global */
 * {
     margin: 0;
     padding: 0;
@@ -9,6 +10,8 @@ body {
 header {
     background-color: #11a79a;
     margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
 }
 .content {
     width: 90%;
@@ -20,20 +23,39 @@ header {
 .logo {
     padding: 10px 0px 60px 10px;
 }
-.menubar ul {
-    padding: 10px 0px 10px 0px;
-    margin-top: none;
-    list-style: none;
-    font-family: 'Montserrat', sans-serif;
-    display: flex;
-    justify-content: space-evenly;
-    color: white;
-    background: #3d3d3d;
-    width: 100%;
-    margin: auto;
-    font-size: 15px;
-    max-height: 20px;
+.sidebar {
+    position: fixed;
+    z-index: 1;
+    display: block;
+    height: 100%;
+    width: 200px;
+    background-color: #3d3d3d;
+    top: 0; left: 0;
+    overflow-x: hidden;
+    padding: 120px 10px 0px 15px;
 }
+.sidebar a {
+    display: block;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    color: #F7F0F5;
+    font-size: 12px;
+    padding: 10px;
+}
+.sidebar div {
+    margin-bottom: 10px;
+}
+.sidebar span {
+    font-family: 'Montserrat', sans-serif;
+    color: #F7F0F5;
+    font-weight: bold;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+.sidebar a:hover {
+    background: #1e1e1e;
+}
+/* Each CSS */
 
 #new {
     text-decoration: underline;
@@ -70,7 +92,7 @@ header {
 }
 .form {
     width: 70%;
-    margin: auto;
+    margin-left: 300px;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     margin-top: 50px;

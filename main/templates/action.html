@@ -10,6 +10,9 @@
 {% endblock %}
 
 {% block content %}
+    <div class='title'>
+        <h1>Data Balita Desa Sumberejo</h1>
+    </div>
     <table>
         <thead>
         <tr>
@@ -22,7 +25,7 @@
             <th>Umur (minggu)</th>
             <th>Nama Ibu</th>
             <th>NIK Ibu</th>
-            <th>Aksi</th>
+            <th>Posyandu</th>
         </tr>
         </thead>
         <tbody>
@@ -37,7 +40,7 @@
             <td>{{ profil.umur }}</td>
             <td>{{ profil.namaibu }}</td>
             <td>{{ profil.nikibu}}</td>
-            <td><a href="{% url 'main:posyandu' profil.nik %}">Isi Data Posyandu</a></td>
+            <td><a href="{% url 'main:posyandu' profil.nik %}">Isi Data</a></td>
         </tr>
         {% endfor %}
         </tbody>
