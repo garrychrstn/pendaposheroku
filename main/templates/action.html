@@ -12,6 +12,11 @@
 {% block content %}
     <div class='title'>
         <h1>Data Balita Desa Sumberejo</h1>
+        <form method='POST' action=''>
+            {% csrf_token %}
+            {{ forms }}
+            <button type='submit' name='search'>Cari Nama</button>
+        </form>
     </div>
     <table>
         <thead>

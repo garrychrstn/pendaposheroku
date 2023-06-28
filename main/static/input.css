@@ -101,9 +101,15 @@ header {
     margin-bottom: 10px;
     border: gray 1px solid;
     min-height: 20px;
-    padding: 0px 5px;
+    padding: 4px 6px;
 }
-
+.form label {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.tgl {
+    margin-bottom: 20px;
+}
 .form input:focus {
     outline: none;
 }
@@ -122,4 +128,7 @@ header {
 #input {
     background: #1e1e1e;
     text-decoration: none;
+}
+.dusun {
+    background: #F7F0F5;
 }

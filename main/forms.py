@@ -1,6 +1,16 @@
 from django import forms
 from dal import autocomplete
 
+class SearchBalita(forms.Form):
+    nama = forms.CharField(
+        max_length=50,
+        label = '',
+        label_suffix= '',
+        widget=forms.TextInput(attrs={
+            'placeholder' : 'Nama'
+        })
+    )
+    
 class ProfilInput(forms.Form):
     nik = forms.IntegerField(
         label_suffix = ' ',
@@ -42,7 +52,9 @@ class ProfilInput(forms.Form):
         ('Derso', 'Derso')
     ]
     dusun = forms.ChoiceField(
-        widget=forms.Select,
+        widget=forms.Select(attrs={
+            'class' : 'dusun'
+        }),
         required = True,
         choices=pilihandusun,
         label = 'Dusun',
@@ -52,6 +64,7 @@ class ProfilInput(forms.Form):
         label_suffix=' ',
         widget=forms.DateInput(attrs={
             'placeholder' : 'Tanggal Lahir',
+            'class' : 'tgl',
             'type' : 'date'
         }))
     

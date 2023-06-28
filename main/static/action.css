@@ -159,3 +159,31 @@ td a:hover {
     background: #1e1e1e;
     text-decoration: none;
 }
+.title {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+}
+.title form {
+    margin-top: 15px;
+}
+.title input {
+    padding: 5px;
+    width: 200px;
+    background: #f7f0f5;
+    font-family: 'Montserrat', sans-serif;
+    border: 1px solid #3d3d3d;
+}
+.title button {
+    padding: 5px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: none;
+    background: #3d3d3d;
+    color: #F7F0F5;
+    border: 1px solid black;
+}
+.title button:hover {
+    color: #3d3d3d;
+    background: #f5f0f5;
+}

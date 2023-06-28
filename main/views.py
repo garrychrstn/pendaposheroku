@@ -50,7 +50,16 @@ def action(response):
         umur = (datetime.now().date() - date).days // 7
         profil.umur = umur
 
-    return render(response, 'action.html', {'profils' : profils, 'umur' : umur})
+    if response.method == 'POST':
+        forms = SearchBalita(response.POST)
+        if forms.is_valid():
+            nama = forms.cleaned_data['nama']
+            
+            profils = profils.filter(nama__icontains=nama)
+    else:
+        forms = SearchBalita()
+
+    return render(response, 'action.html', {'profils' : profils, 'umur' : umur, 'forms' : forms})
 
 
 def posyandu(request, nik):
