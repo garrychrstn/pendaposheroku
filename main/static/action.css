@@ -100,12 +100,14 @@ table {
     font-family: 'Montserrat', sans-serif;
 
 }
-.title h1 {
-    padding-left: 250px;
-    font-family: 'Montserrat', sans-serif;
-    color: #4d4d4d;
+.title {
+    margin-top: 40px;
+    width: 60%;
+    margin-left: 250px;
     margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
 }
+
 th, td {
     border: 1px solid black;
     padding: 5px;
@@ -152,4 +154,8 @@ td a:hover {
 }
 .sidebar a:hover {
     background: #1e1e1e;
+}
+#data {
+    background: #1e1e1e;
+    text-decoration: none;
 }

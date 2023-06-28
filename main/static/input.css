@@ -81,15 +81,13 @@ header {
     color: white;
 
 }
-.title {
+.intro {
+    margin-top: 40px;
     width: 60%;
-    margin: auto;
-    text-align: center;
-}
-.title h1 {
+    margin-left: 300px;
     font-family: 'Montserrat', sans-serif;
-    margin: auto;
 }
+
 .form {
     width: 70%;
     margin-left: 300px;
@@ -120,4 +118,8 @@ header {
     font-family: 'Montserrat', sans-serif;
     color: white;
     box-shadow: none;
+}
+#input {
+    background: #1e1e1e;
+    text-decoration: none;
 }
