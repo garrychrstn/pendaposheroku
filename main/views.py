@@ -44,11 +44,6 @@ def input(response):
 def action(response):
     profils = Profil.objects.all()
     umur = 0
-    
-    for profil in profils:
-        date = profil.tgl
-        umur = (datetime.now().date() - date).days // 7
-        profil.umur = umur
 
     if response.method == 'POST':
         forms = SearchBalita(response.POST)
@@ -58,6 +53,11 @@ def action(response):
             profils = profils.filter(nama__icontains=nama)
     else:
         forms = SearchBalita()
+
+    for profil in profils:
+        date = profil.tgl
+        umur = (datetime.now().date() - date).days // 7
+        profil.umur = umur
 
     return render(response, 'action.html', {'profils' : profils, 'umur' : umur, 'forms' : forms})
 
