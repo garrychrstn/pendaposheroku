@@ -10,7 +10,7 @@ class SearchBalita(forms.Form):
             'placeholder' : 'Nama'
         })
     )
-class PosyanduFilter(forms.Form):
+class BulanForm(forms.Form):
     pilihanbulan = [
     ('Januari', 'Januari'),
     ('Februari', 'Februari'),

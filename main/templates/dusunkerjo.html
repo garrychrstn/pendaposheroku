@@ -10,6 +10,11 @@
 {% block content %}
     <div class='intro'>
         <h1>Riwayat Posyandu Dusun Kerjo</h1>
+        <form method='POST' action=''>
+            {% csrf_token %}
+            {{ forms }}
+            <button type='submit' name='save'>Filter</button>
+        </form>
     </div>
     {% comment %} <div class='filter'>
         <form method="GET" action="{% url 'main:riwayatfilter' %}">

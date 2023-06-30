@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from datetime import date, timezone, datetime
 from .forms import *
+from django.db.models import Prefetch
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from . forms import *
 from . models import *
@@ -107,72 +108,130 @@ def inputposyandu(response, nik):
 
             
 def riwayat(response):
-
-    # profils = Profil.objects.all()
-    # posyandus = Posyandu.objects.all()
-
-    # context = {
-    #     'pf' : profils,
-    #     'ps' : posyandus,
-    # }
-    # return render(response, 'all.html', context)
-
     profils = Profil.objects.prefetch_related('posyandu_set')
     if response.method == 'POST':
-        forms = PosyanduFilter(response.POST)
+        forms = BulanForm(response.POST)
         if forms.is_valid():
             bulan = forms.cleaned_data['bulan']
-            profils = profils.filter(bulan__icontains=bulan)
+            profils = Profil.objects.prefetch_related(
+                Prefetch('posyandu_set', Posyandu.objects.filter(bulan=bulan))
+            ).filter(posyandu__bulan=bulan)
+        
     else:
-        forms = PosyanduFilter()
-
+        forms = BulanForm()
     return render(response, 'all.html', {'profils': profils, 'forms' : forms})
 
 def dumpul(response):
-    p = Profil.objects.prefetch_related('posyandu_set')
-    profils = p.filter(dusun='Dumpul')
+    profils = Profil.objects.prefetch_related('posyandu_set')
+    profils = profils.filter(dusun='Dumpul')
+    if response.method == 'POST':
+        forms = BulanForm(response.POST)
+        if forms.is_valid():
+            bulan = forms.cleaned_data['bulan']
+            profils = Profil.objects.prefetch_related(
+                Prefetch('posyandu_set', Posyandu.objects.filter(bulan=bulan))
+            ).filter(posyandu__bulan=bulan, dusun='Dumpul')
+        
+    else:
+        forms = BulanForm()
     context = {
         'profils' : profils,
+        'forms' : forms
     }
     return render(response, 'dusundumpul.html', context)
 
 def kadipeso(response):
-    p = Profil.objects.prefetch_related('posyandu_set')
-    profils = p.filter(dusun='Kadipeso')
+    profils = Profil.objects.prefetch_related('posyandu_set')
+    profils = profils.filter(dusun='Kadipeso')
+    if response.method == 'POST':
+        forms = BulanForm(response.POST)
+        if forms.is_valid():
+            bulan = forms.cleaned_data['bulan']
+            profils = Profil.objects.prefetch_related(
+                Prefetch('posyandu_set', Posyandu.objects.filter(bulan=bulan))
+            ).filter(posyandu__bulan=bulan, dusun='Kadipeso')
+        
+    else:
+        forms = BulanForm()
     context = {
         'profils' : profils,
+        'forms' : forms
     }
     return render(response, 'dusunkadipeso.html', context)
 
 def derso(response):
-    p = Profil.objects.prefetch_related('posyandu_set')
-    profils = p.filter(dusun='Derso')
+    profils = Profil.objects.prefetch_related('posyandu_set')
+    profils = profils.filter(dusun='Derso')
+    if response.method == 'POST':
+        forms = BulanForm(response.POST)
+        if forms.is_valid():
+            bulan = forms.cleaned_data['bulan']
+            profils = Profil.objects.prefetch_related(
+                Prefetch('posyandu_set', Posyandu.objects.filter(bulan=bulan))
+            ).filter(posyandu__bulan=bulan, dusun='Derso')
+        
+    else:
+        forms = BulanForm()
     context = {
         'profils' : profils,
+        'forms' : forms
     }
     return render(response, 'dusunderso.html', context)
 
 def plandakan(response):
-    p = Profil.objects.prefetch_related('posyandu_set')
-    profils = p.filter(dusun='Plandakan')
+    profils = Profil.objects.prefetch_related('posyandu_set')
+    profils = profils.filter(dusun='Plandakan')
+    if response.method == 'POST':
+        forms = BulanForm(response.POST)
+        if forms.is_valid():
+            bulan = forms.cleaned_data['bulan']
+            profils = Profil.objects.prefetch_related(
+                Prefetch('posyandu_set', Posyandu.objects.filter(bulan=bulan))
+            ).filter(posyandu__bulan=bulan, dusun='Plandakan')
+        
+    else:
+        forms = BulanForm()
     context = {
         'profils' : profils,
+        'forms' : forms
     }
     return render(response, 'dusunplandakan.html', context)
 
 def kerjo(response):
-    p = Profil.objects.prefetch_related('posyandu_set')
-    profils = p.filter(dusun='Kerjo')
+    profils = Profil.objects.prefetch_related('posyandu_set')
+    profils = profils.filter(dusun='Kerjo')
+    if response.method == 'POST':
+        forms = BulanForm(response.POST)
+        if forms.is_valid():
+            bulan = forms.cleaned_data['bulan']
+            profils = Profil.objects.prefetch_related(
+                Prefetch('posyandu_set', Posyandu.objects.filter(bulan=bulan))
+            ).filter(posyandu__bulan=bulan, dusun='Kerjo')
+        
+    else:
+        forms = BulanForm()
     context = {
         'profils' : profils,
+        'forms' : forms
     }
     return render(response, 'dusunkerjo.html', context)
 
 def sumberejo(response):
-    p = Profil.objects.prefetch_related('posyandu_set')
-    profils = p.filter(dusun='Sumberejo')
+    profils = Profil.objects.prefetch_related('posyandu_set')
+    profils = profils.filter(dusun='Sumberejo')
+    if response.method == 'POST':
+        forms = BulanForm(response.POST)
+        if forms.is_valid():
+            bulan = forms.cleaned_data['bulan']
+            profils = Profil.objects.prefetch_related(
+                Prefetch('posyandu_set', Posyandu.objects.filter(bulan=bulan))
+            ).filter(posyandu__bulan=bulan, dusun='Sumberejo')
+        
+    else:
+        forms = BulanForm()
     context = {
         'profils' : profils,
+        'forms' : forms
     }
     return render(response, 'dusunsumberejo.html', context)
 
