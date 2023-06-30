@@ -118,8 +118,15 @@ def riwayat(response):
     # return render(response, 'all.html', context)
 
     profils = Profil.objects.prefetch_related('posyandu_set')
-    
-    return render(response, 'all.html', {'profils': profils})
+    if response.method == 'POST':
+        forms = PosyanduFilter(response.POST)
+        if forms.is_valid():
+            bulan = forms.cleaned_data['bulan']
+            profils = profils.filter(bulan__icontains=bulan)
+    else:
+        forms = PosyanduFilter()
+
+    return render(response, 'all.html', {'profils': profils, 'forms' : forms})
 
 def dumpul(response):
     p = Profil.objects.prefetch_related('posyandu_set')

@@ -10,7 +10,28 @@ class SearchBalita(forms.Form):
             'placeholder' : 'Nama'
         })
     )
-    
+class PosyanduFilter(forms.Form):
+    pilihanbulan = [
+    ('Januari', 'Januari'),
+    ('Februari', 'Februari'),
+    ('Maret', 'Maret'),
+    ('April', 'April'),
+    ('Mei', 'Mei'),
+    ('Juni', 'Juni'),
+    ('Juli', 'Juli'),
+    ('Agustus', 'Agustus'),
+    ('September', 'September'),
+    ('Oktober', 'Oktober'),
+    ('November', 'November'),
+    ('Desember', 'Desember'),
+]
+    bulan = forms.ChoiceField(
+        widget = forms.Select,
+        choices = pilihanbulan,
+        label = 'Posyandu Bulan'
+
+    )
+
 class ProfilInput(forms.Form):
     nik = forms.IntegerField(
         label_suffix = ' ',
