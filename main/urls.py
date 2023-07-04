@@ -17,5 +17,6 @@ urlpatterns = [
     path('riwayat/plandakan', views.plandakan, name=''),
     path('riwayat/kerjo', views.kerjo, name=''),
     path('riwayatfilter', views.filtered, name='riwayatfilter'),
-    path('login', views.login_request, name='login')
+    path('login', views.login_request, name='login'),
+    path('login', auth_views.LogoutView.as_view(), name='logout')
 ]
