@@ -130,4 +130,4 @@ LOGIN_URL ='main:login'
 
 LOGIN_REDIRECT_URL = '/index/'
 
-LOTOUT_REDIRECT_URL = '/login/'
+LOGOUT_REDIRECT_URL = 'main:login'

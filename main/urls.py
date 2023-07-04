@@ -18,5 +18,5 @@ urlpatterns = [
     path('riwayat/kerjo', views.kerjo, name=''),
     path('riwayatfilter', views.filtered, name='riwayatfilter'),
     path('login', views.login_request, name='login'),
-    path('login', auth_views.LogoutView.as_view(), name='logout')
+    path('logout', auth_views.LogoutView.as_view(), name='logout')
 ]
