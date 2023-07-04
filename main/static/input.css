@@ -23,10 +23,10 @@ header {
 .logo {
     padding: 10px 0px 60px 10px;
 }
-.sidebar {
+#sidebar {
     position: fixed;
     z-index: 1;
-    display: block;
+    display: none;
     height: 100%;
     width: 200px;
     background-color: #3d3d3d;
@@ -34,7 +34,7 @@ header {
     overflow-x: hidden;
     padding: 120px 10px 0px 15px;
 }
-.sidebar a {
+#sidebar a {
     display: block;
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
@@ -42,17 +42,17 @@ header {
     font-size: 12px;
     padding: 10px;
 }
-.sidebar div {
+#sidebar div {
     margin-bottom: 10px;
 }
-.sidebar span {
+#sidebar span {
     font-family: 'Montserrat', sans-serif;
     color: #F7F0F5;
     font-weight: bold;
     padding-left: 10px;
     margin-bottom: 10px;
 }
-.sidebar a:hover {
+#sidebar a:hover {
     background: #1e1e1e;
 }
 /* Each CSS */
@@ -81,44 +81,44 @@ header {
     color: white;
 
 }
-.intro {
+#intro {
     margin-top: 40px;
     width: 60%;
-    margin-left: 300px;
+    margin-left: 100px;
     font-family: 'Montserrat', sans-serif;
 }
 
-.form {
+#form {
     width: 70%;
-    margin-left: 300px;
+    margin-left: 100px;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     margin-top: 50px;
 }
 
-.form input {
+#form input {
     background: none;
     margin-bottom: 10px;
     border: gray 1px solid;
     min-height: 20px;
     padding: 4px 6px;
 }
-.form label {
+#form label {
     font-size: 18px;
     margin-bottom: 10px;
 }
 .tgl {
     margin-bottom: 20px;
 }
-.form input:focus {
+#form input:focus {
     outline: none;
 }
 
-.form input[type=text], .form input[type=number] {
+#form input[type=text], #form input[type=number] {
     width: 50%;
 }
 
-.form button {
+#form button {
     padding: 5px;
     background: #3d3d3d;
     font-family: 'Montserrat', sans-serif;

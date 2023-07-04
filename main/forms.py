@@ -1,5 +1,9 @@
 from django import forms
 from dal import autocomplete
+from django.shortcuts import  render, redirect
+from django.contrib.auth import login, authenticate #add this
+from django.contrib import messages
+from django.contrib.auth.forms import AuthenticationForm #add this
 
 class SearchBalita(forms.Form):
     nama = forms.CharField(
@@ -162,3 +166,5 @@ class PosyanduForm(forms.Form):
             'placeholder' : 'Keterangan'
         })
     )
+
+

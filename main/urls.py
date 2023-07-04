@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from django.contrib.auth import views as auth_views
 app_name = 'main'
 urlpatterns = [
     path('', views.index, name='index'),
@@ -15,5 +16,6 @@ urlpatterns = [
     path('riwayat/sumberejo', views.sumberejo, name=''),
     path('riwayat/plandakan', views.plandakan, name=''),
     path('riwayat/kerjo', views.kerjo, name=''),
-    path('riwayatfilter', views.filtered, name='riwayatfilter')
+    path('riwayatfilter', views.filtered, name='riwayatfilter'),
+    path('login', views.login_request, name='login')
 ]

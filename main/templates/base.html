@@ -6,6 +6,7 @@
         {% block style %}
             <link rel=stylesheet type=text/css href={% static 'base.css' %}>
         {% endblock %}
+        <script type='text/javascript' src={% static 'side.js' %}></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap" rel="stylesheet">
@@ -31,8 +32,18 @@
                 </ul>
             </div> {% endcomment %}
         </header>
-        <div class='sidebar'>
+        <div class='open'>
+            <button onclick='openNav()'>
+                <img src={% static 'assets/menu.png' %} height='30'>
+            </button>
+        </div>
+        <div id='sidebar'>
             <div>
+                <h3>
+                    <button onclick='closeNav()'>
+                        <img src={% static 'assets/close.png' %} height='20'>
+                    </button>
+                </h3>
                 <span>Data Balita</span>
                 <a id='data' href='/action'>Data Balita</a>
                 <a id='input' href='/input'>Balita Baru</a>

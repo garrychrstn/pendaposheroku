@@ -1,7 +1,11 @@
-/* Global */
 * {
     margin: 0;
     padding: 0;
+}
+
+a {
+    color: white;
+    text-decoration: none;
 }
 body {
     background-color: #F7F0F5;
@@ -9,23 +13,16 @@ body {
 
 header {
     background-color: #11a79a;
+    padding-top: 20px;
     position: relative;
     z-index: 2;
 }
-.content {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    max-height: 100px ;
-    justify-content: space-between;
-}
-.logo {
-    padding: 10px 0px 60px 10px;
-}
+
+
 #sidebar {
     position: fixed;
     z-index: 1;
-    display: block;
+    display: none;
     height: 100%;
     width: 200px;
     background-color: #3d3d3d;
@@ -54,7 +51,30 @@ header {
 #sidebar a:hover {
     background: #1e1e1e;
 }
-/* Each CSS */
+.content {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    max-height: 100px ;
+    justify-content: space-between;
+}
+.logo {
+    padding: 10px 0px 60px 10px;
+}
+.menubar ul {
+    padding: 10px 0px 10px 0px;
+    margin-top: none;
+    list-style: none;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    background: #3d3d3d;
+    width: 100%;
+    margin: auto;
+    font-size: 15px;
+    max-height: 20px;
+}
 .content ul {
     display: flex;
     margin-right: 30px;
@@ -68,37 +88,12 @@ header {
     font-size: 20px;
     font-family: 'Montserrat', sans-serif;
     color: white;
-
+    background: red;
 }
 
-.form {
-    width: 70%;
-    margin: auto;
+.menubar li a {
     font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    margin-top: 50px;
-}
-
-.form input {
-    background: none;
-    margin-bottom: 10px;
-    border: gray 1px solid;
-    min-height: 20px;
-    padding: 0px 5px;
-}
-
-.form input:focus {
-    outline: none;
-}
-
-.form input[type=text], .form input[type=number] {
-    width: 50%;
-}
-
-.form button {
-    padding: 5px;
-    background: #3d3d3d;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     color: white;
-    box-shadow: none;
+    text-decoration: none;
 }

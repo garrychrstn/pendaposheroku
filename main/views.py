@@ -1,4 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login, authenticate
+from django.contrib import messages
+from django.contrib.auth.forms import AuthenticationForm
 from datetime import date, timezone, datetime
 from .forms import *
 from django.db.models import Prefetch
@@ -8,9 +12,11 @@ from . models import *
 
 
 # Create your views here.
+@login_required
 def index(response):
     return render(response, 'index.html')
 
+@login_required
 def input(response):
     if response.method == 'POST':
         
@@ -42,6 +48,7 @@ def input(response):
     
     return render(response, 'input.html', {'profilform' : profilform})
 
+@login_required
 def action(response):
     profils = Profil.objects.all()
     umur = 0
@@ -63,6 +70,7 @@ def action(response):
     return render(response, 'action.html', {'profils' : profils, 'umur' : umur, 'forms' : forms})
 
 
+@login_required
 def posyandu(request, nik):
     x = Profil.objects.get(nik=nik)
     if request.method == 'POST':
@@ -85,6 +93,7 @@ def posyandu(request, nik):
         forms = PosyanduForm()
     return render(request, 'posyandu.html', {'forms': forms, 'x' : x})
 
+@login_required
 def inputposyandu(response, nik):
     data = Profil.objects.get(nik=nik)
     if response.method == 'POST':
@@ -106,7 +115,8 @@ def inputposyandu(response, nik):
     
     return render(response, 'posyandu.html', {'forms' : forms, 'data' : data})
 
-            
+
+@login_required            
 def riwayat(response):
     profils = Profil.objects.prefetch_related('posyandu_set')
     if response.method == 'POST':
@@ -121,6 +131,7 @@ def riwayat(response):
         forms = BulanForm()
     return render(response, 'all.html', {'profils': profils, 'forms' : forms})
 
+@login_required
 def dumpul(response):
     profils = Profil.objects.prefetch_related('posyandu_set')
     profils = profils.filter(dusun='Dumpul')
@@ -140,6 +151,7 @@ def dumpul(response):
     }
     return render(response, 'dusundumpul.html', context)
 
+@login_required
 def kadipeso(response):
     profils = Profil.objects.prefetch_related('posyandu_set')
     profils = profils.filter(dusun='Kadipeso')
@@ -159,6 +171,7 @@ def kadipeso(response):
     }
     return render(response, 'dusunkadipeso.html', context)
 
+@login_required
 def derso(response):
     profils = Profil.objects.prefetch_related('posyandu_set')
     profils = profils.filter(dusun='Derso')
@@ -178,6 +191,7 @@ def derso(response):
     }
     return render(response, 'dusunderso.html', context)
 
+@login_required
 def plandakan(response):
     profils = Profil.objects.prefetch_related('posyandu_set')
     profils = profils.filter(dusun='Plandakan')
@@ -197,6 +211,7 @@ def plandakan(response):
     }
     return render(response, 'dusunplandakan.html', context)
 
+@login_required
 def kerjo(response):
     profils = Profil.objects.prefetch_related('posyandu_set')
     profils = profils.filter(dusun='Kerjo')
@@ -216,6 +231,7 @@ def kerjo(response):
     }
     return render(response, 'dusunkerjo.html', context)
 
+@login_required
 def sumberejo(response):
     profils = Profil.objects.prefetch_related('posyandu_set')
     profils = profils.filter(dusun='Sumberejo')
@@ -235,7 +251,7 @@ def sumberejo(response):
     }
     return render(response, 'dusunsumberejo.html', context)
 
-
+@login_required
 def filtered(request):
     bulan = request.GET.get('bulan')
     posyandu_list = Profil.objects.prefetch_related('posyandu_set')
@@ -247,3 +263,22 @@ def filtered(request):
             'posyandu_list' : posyandu_list,
         }
         return render(request, 'riwayatfilter.html', context)
+
+def login_request(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.info(request, f"you are now loged as {username}")
+                return redirect("main:index")
+            else:
+                messages.error(request, "Invalid Username or Password")
+        else:
+            messages.error(request, "Invalid Username or Password")
+    else:
+        form = AuthenticationForm()
+    return render(request, 'log/login.html', {'form' : form})

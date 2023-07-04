@@ -94,7 +94,7 @@ header a{
 }
 
 table {
-    margin-left: 250px;
+    margin-left: 100px;
     width: 70%;
     border-collapse: collapse;
     font-family: 'Montserrat', sans-serif;
@@ -123,10 +123,10 @@ td a {
 td a:hover {
     background: #1e1e1e;
 }
-.sidebar {
+#sidebar {
     position: fixed;
     z-index: 1;
-    display: block;
+    display: none;
     height: 100%;
     width: 200px;
     background-color: #3d3d3d;
@@ -134,7 +134,7 @@ td a:hover {
     overflow-x: hidden;
     padding: 120px 10px 0px 15px;
 }
-.sidebar a {
+#sidebar a {
     display: block;
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
@@ -142,26 +142,23 @@ td a:hover {
     font-size: 12px;
     padding: 10px;
 }
-.sidebar div {
+#sidebar div {
     margin-bottom: 10px;
 }
-.sidebar span {
+#sidebar span {
     font-family: 'Montserrat', sans-serif;
     color: #F7F0F5;
     font-weight: bold;
     padding-left: 10px;
     margin-bottom: 10px;
 }
-.sidebar a:hover {
+#sidebar a:hover {
     background: #1e1e1e;
-}
-#data {
-    background: #1e1e1e;
-    text-decoration: none;
 }
 .title {
     display: flex;
     width: 80%;
+    margin-left: 100px;
     justify-content: space-between;
 }
 .title form {

@@ -8,10 +8,10 @@
 {% endblock %}
 
 {% block content %}
-    <div class='intro'>
+    <div id='intro'>
         <h1>Isi Data Balita Baru Lahir</h1>
     </div>
-    <div class='form'>
+    <div id='form'>
         <form method='POST' action=''>
             {% csrf_token %}
             {{ profilform.as_p }}
