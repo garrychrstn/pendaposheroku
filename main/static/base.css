@@ -13,9 +13,9 @@ body {
 
 header {
     background-color: #11a79a;
-    padding-top: 20px;
     position: relative;
     z-index: 2;
+    padding-top: 20px;
 }
 
 
@@ -88,7 +88,6 @@ header {
     font-size: 20px;
     font-family: 'Montserrat', sans-serif;
     color: white;
-    background: red;
 }
 
 .menubar li a {
