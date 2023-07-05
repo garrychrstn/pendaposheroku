@@ -184,3 +184,49 @@ td a:hover {
     color: #3d3d3d;
     background: #f5f0f5;
 }
+
+@media screen and (min-aspect-ratio: 16/9) {
+    #sidebar {
+        position: fixed;
+        z-index: 1;
+        display: block;
+        height: 100%;
+        width: 200px;
+        background-color: #3d3d3d;
+        top: 0; left: 0;
+        overflow-x: hidden;
+        padding: 160px 10px 0px 15px;
+    }
+    #sidebar a {
+        display: block;
+        text-decoration: none;
+        font-family: 'Montserrat', sans-serif;
+        color: #F7F0F5;
+        font-size: 12px;
+        padding: 10px;
+    }
+    #sidebar div {
+        margin-bottom: 10px;
+    }
+    #sidebar span {
+        font-family: 'Montserrat', sans-serif;
+        color: #F7F0F5;
+        font-weight: bold;
+        padding-left: 10px;
+        margin-bottom: 10px;
+    }
+    #sidebar a:hover {
+        background: #1e1e1e;
+    }
+    .open button {
+        display: none;
+    }    
+    #sidebar h3 {
+        display: none;
+    }
+    .container {
+        margin: auto;
+        margin-left: 150px;
+    }
+
+}

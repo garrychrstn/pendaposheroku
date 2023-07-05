@@ -8,6 +8,7 @@
 {% endblock %}
 
 {% block content %}
+<div class='container'>
     <div class='intro'>
         <h1>Riwayat Posyandu Dusun Sumberejo</h1>
         <form method='POST' action=''>
@@ -57,10 +58,12 @@
             {% endfor %}
         </tbody>
     </table>
+</div>
     <script>
         function print() {
             document.getElementById("print").addEventListener("click", function() {
                 window.print();
               });
         }
+    </script>
 {% endblock %}

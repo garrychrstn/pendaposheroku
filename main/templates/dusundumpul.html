@@ -8,6 +8,7 @@
 {% endblock %}
 
 {% block content %}
+<div class='container'>
     <div class='intro'>
         <h1>Riwayat Posyandu Dusun Dumpul</h1>
         <form method='POST' action=''>
@@ -15,6 +16,7 @@
             {{ forms }}
             <button type='submit' name='save'>Filter</button>
         </form>
+        <button id='print' onclick='print()'>Print</button>
     </div>
     {% comment %} <div class='filter'>
         <form method="GET" action="{% url 'main:riwayatfilter' %}">
@@ -76,4 +78,12 @@
             {% endfor %}
         </tbody>
     </table>
+</div>
+<script>
+    function print() {
+        document.getElementById("print").addEventListener("click", function() {
+            window.print();
+          });
+    }
+</script>
 {% endblock %}
