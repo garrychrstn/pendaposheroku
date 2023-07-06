@@ -9,7 +9,10 @@ a {
     text-decoration: none;
 }
 body {
-    background-color: #F7F0F5;
+    background-image: url('assets/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 header {
@@ -151,6 +154,7 @@ body {
     }
     .container {
         margin-left: 250px;
+        background-color: white;
     }
 
 }
